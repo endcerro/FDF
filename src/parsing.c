@@ -6,9 +6,10 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:37:08 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/01 20:42:00 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/01 21:01:31 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "header.h"
 
 char	*recurs(int depth, int *ret, int fd)
 {
@@ -47,20 +48,44 @@ int	get_next_line(int fd, char **out)
 	return (ret);
 }
 
-void parsing_recurs()
+void parsing_recurs(t_contr *contr, int fd, int depth)
 {
+	char *tmp;
 
+	if (get_next_line(fd, &tmp))
+	{
+		parsing_recurs(contr, fd, depth + 1);
+	}
+	else
+	{
+		contr->map = malloc(sizeof(char *) * (depth + 1));
+		contr->map[depth] = 0;
+		return ;
+	}
+	contr->map[depth] = tmp;
 }
 
-int	parsing(char *path)
+void test(t_contr *contr)
+{
+	int i = 0;
+	while (contr->map[i])
+	{
+		printf("%s\n", contr->map[i++]);
+	}
+}
+
+int	parsing(t_contr *contr, char *path)
 {
 	char 	**output;
 	int 	fd;
+	int 	depth;
 
+	depth = 0;
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-	{
-		printf("Unable to open file at path %s\n", path);
-		return (-1);
-	}
+		return (printf("Unable to open file at path %s\n", path));
+	parsing_recurs(contr, fd, 0);
+	test(contr);
+	return 0;
 }
+

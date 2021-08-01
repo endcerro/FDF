@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/01 20:24:46 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/01 20:49:06 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ DIRSRC		=	src
 OBJD		=	obj
 INCLUDE		=	incl
 
-SRC			=	main.c
+SRC			=	main.c 		\
+				parsing.c
 
 OBJ			=	$(SRC:.c=.o)
 OBJS		=	$(OBJ:%=$(OBJD)/%)
