@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/01 21:02:14 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/01 21:12:15 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -17,6 +17,16 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
+
+typedef struct s_node
+{
+	int 			height;
+	unsigned int 	R;
+	unsigned int 	G;
+	unsigned int 	B;
+
+}
+
 typedef struct s_contr
 {
 	void			*mlx;
