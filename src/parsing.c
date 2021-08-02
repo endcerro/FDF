@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:37:08 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:11:14 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 14:24:29 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -88,26 +88,21 @@ int	ft_atoi(const char *in)
 
 int getlen(char *line)
 {
-	int amt;
-	int i;
+	int	amt;
+	int	i;
 
 	i = 0;
 	amt = 0;
-
 	while(line[i])
 	{
 		while(line[i] && (line[i] == '-' || ft_isdigit(line[i])))
 			++i;
 		++amt;
 		if (line[i] && line[i] == ',')
-		{
-			// i += 9; 
-			//Case where RGB is supplied
-		}
+			i += 9; 
 		while(line[i] && ft_isspace(line[i]))
 			++i;
 	}
-	// printf("amt %d for %s\n", amt, line);
 	return (amt);
 }
 
@@ -163,17 +158,18 @@ void setrgb(t_node *node, char *rgb)
 t_node *parse_line(char *tmp, t_contr *contr)
 {
 	static int 	len = -1;
-	int 		i = 0;
-	int 		j = 0;
+	int 		i;
+	int 		j;
 	t_node 		*ret;
 
+	i = 0;
+	j = 0;
 	if (len == -1)
 		len = getlen(tmp);
 	contr->map_w = len;
 	ret = malloc(sizeof(t_node) * len);
 	if (ret == NULL)
 		return 0;
-	// printf("For line %s\n", tmp);
 	while(tmp[i])
 	{
 		ret[j++].height = ft_atoi(tmp + i);
@@ -181,20 +177,10 @@ t_node *parse_line(char *tmp, t_contr *contr)
 			++i;
 		setrgb(&(ret[j - 1]), tmp + i);
 		if (tmp[i] == ',')
-		{
-			
-			//Skip RGB for now
 			i += 9;
-		}
-		// else
-		// {
-		// 	setrgb(&(ret[j - 1]), NULL);
-		// }
 		while(ft_isspace(tmp[i]))
 			++i;
 	}
-
-
 	return (ret);
 }
 
@@ -216,14 +202,13 @@ int parsing_recurs(t_contr *contr, int fd, int depth)
 		contr->map = malloc(sizeof(t_node *) * (depth + 1));
 		if (contr->map == NULL)
 			return (1);
-		contr->map[depth] = 0;
+		contr->map[depth] = NULL;
 		return (0);
 	}
 	contr->map[depth] = parse_line(tmp, contr);
 	free(tmp);
 	if (contr->map[depth] == NULL)
 		return (1);
-	
 	return (0);
 }
 
