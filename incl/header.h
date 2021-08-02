@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:31:05 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 16:14:28 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -29,6 +29,13 @@ typedef struct s_node
 	unsigned int 	G;
 	unsigned int 	B;
 } t_node;
+
+typedef struct s_dot
+{
+	int 			x;
+	int 			y;
+	int 			color;
+} 	t_dot;
 
 typedef struct	s_img
 {
@@ -55,6 +62,7 @@ typedef struct s_contr
 int parsing(t_contr *contr, char *path);
 
 //MLX FUNS
-void run(t_contr *contr);
+void	run(t_contr *contr);
+void	p_px(t_contr *contr, int x, int y, int color);
 
 #endif

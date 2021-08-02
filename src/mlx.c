@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 13:27:39 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:44:45 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 16:12:16 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -39,6 +39,7 @@ int		loop_(void *params)
 	t_contr *contr;
 
 	contr = (t_contr*)params;
+	draw(contr);
 	for (int i = 0; i < 100; i++)
 	{
 		for (int j = 0; j < 100; j++)
