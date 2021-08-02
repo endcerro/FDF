@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:05:46 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:31:05 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -18,6 +18,9 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
+#define XRES 500
+#define YRES 500
+
 typedef struct s_node
 {
 	int 			height;
@@ -27,10 +30,22 @@ typedef struct s_node
 	unsigned int 	B;
 } t_node;
 
+typedef struct	s_img
+{
+	int				bpp;
+	int				length;
+	int				endian;
+	void			*img;
+	char			*addr;
+}				t_img;
+
 typedef struct s_contr
 {
 	void			*mlx;
+	void 			*win_ptr;
+	// void 			*image;
 	// char 			**map;
+	t_img			img;
 	t_node 			**map;
 	unsigned int  	map_h;
 	unsigned int  	map_w;		
@@ -38,5 +53,8 @@ typedef struct s_contr
 
 //BASIC FUNS
 int parsing(t_contr *contr, char *path);
+
+//MLX FUNS
+void run(t_contr *contr);
 
 #endif

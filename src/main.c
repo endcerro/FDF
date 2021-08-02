@@ -6,10 +6,14 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:36:44 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 12:57:14 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:40:22 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
+
+
+
+
 
 void freemap(t_contr *contr)
 {
@@ -18,6 +22,7 @@ void freemap(t_contr *contr)
 	free(contr->map);
 }
 
+
 int main(int argc, char **argv)
 {
 	t_contr contr;
@@ -25,9 +30,15 @@ int main(int argc, char **argv)
 		return (printf("./fdf [PATH TO MAP]\n"));
 	if (parsing(&contr, argv[1]) != 0)
 		return 1;
-	// contr.mlx = mlx_init();
-	// free(contr.mlx);
-	freemap(&contr);
+	run(&contr);
 	
+	mlx_loop(contr.mlx);
+	
+	while(1)
+		;
+	freemap(&contr);
+	mlx_destroy_image(contr.mlx, contr.img.img);
+	mlx_destroy_window(contr.mlx, contr.win_ptr);
+	free(contr.mlx);
 	return 0;
 }
