@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 13:27:39 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:44:07 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:44:45 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -61,6 +61,6 @@ void run(t_contr *contr)
 	image.addr = mlx_get_data_addr(image.img, &(image.bpp), &(image.length),
 		&(image.endian));
 	contr->img = image;
-
 	mlx_loop_hook(contr->mlx, loop_, (void *)contr);
+	mlx_loop(contr->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:36:44 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:40:22 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:44:37 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -32,10 +32,6 @@ int main(int argc, char **argv)
 		return 1;
 	run(&contr);
 	
-	mlx_loop(contr.mlx);
-	
-	while(1)
-		;
 	freemap(&contr);
 	mlx_destroy_image(contr.mlx, contr.img.img);
 	mlx_destroy_window(contr.mlx, contr.win_ptr);
