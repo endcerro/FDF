@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 16:12:27 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 17:21:53 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:25:47 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void plotLineLow(t_contr *contr, int x0, int y0, int x1, int y1)
     int x = x0;
     while (x < x1)
     {
-    	printf("Sending %d %d\n", x, y);
+    	// printf("Sending %d %d\n", x, y);
     	p_px(contr, x, y, 0x00FF00);
     	if (D > 0)
     	{
@@ -62,7 +62,7 @@ void plotLineHigh(t_contr *contr, int x0, int y0, int x1, int y1)
     int y = y0;
     while (y < y1)
     {
-    	printf("Sending %d %d\n", x, y);
+    	// printf("Sending %d %d\n", x, y);
     	p_px(contr, x, y, 0x00FF00);
         if (D > 0)
 		{
@@ -112,5 +112,5 @@ int		mouse_(int btn, int x, int y, t_contr *contr)
 		oy 	= -1;
 	}
 	
-	printf("Click on %d %d\n", x, y);
+	// printf("Click on %d %d\n", x, y);
 }
