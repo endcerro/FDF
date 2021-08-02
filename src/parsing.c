@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:37:08 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 12:55:28 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:11:14 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -130,14 +130,33 @@ void printmap(t_contr *contr, int rgb)
 		j = 0;
 	}
 }
+//0xFF0000
 
 void setrgb(t_node *node, char *rgb)
 {
-	// if (rgb == NULL)
+	// int i = 0;
+	(void)rgb;
+	// int tmp;
+	// if (*rgb != ',')
 	// {
 		node->R = 0;
 		node->G = 0;
 		node->B = 0;
+		return;
+	// }
+	// rgb += 3;
+	
+	// while (i < 6)
+	// {
+	// 	if (*rgb >= 65 && *rgb <= 70)
+	// 	{
+	// 		tmp = *rgb - 64;
+	// 		//We have ascii
+	// 	}
+	// 	else if (*rgb >= 48 && *rgb <= 57)
+	// 	{
+	// 		tmp = *rgb - 48;
+	// 	}
 	// }
 }
 
@@ -160,15 +179,17 @@ t_node *parse_line(char *tmp, t_contr *contr)
 		ret[j++].height = ft_atoi(tmp + i);
 		while(ft_isdigit(tmp[i]) || tmp[i] == '-')
 			++i;
+		setrgb(&(ret[j - 1]), tmp + i);
 		if (tmp[i] == ',')
 		{
+			
 			//Skip RGB for now
-			// i += 9;
+			i += 9;
 		}
-		else
-		{
-			setrgb(&(ret[j - 1]), NULL);
-		}
+		// else
+		// {
+		// 	setrgb(&(ret[j - 1]), NULL);
+		// }
 		while(ft_isspace(tmp[i]))
 			++i;
 	}

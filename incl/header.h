@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 12:42:34 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 13:05:46 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -21,6 +21,7 @@
 typedef struct s_node
 {
 	int 			height;
+	unsigned int 	color;
 	unsigned int 	R;
 	unsigned int 	G;
 	unsigned int 	B;
