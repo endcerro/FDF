@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 13:27:39 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 16:12:16 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:07:18 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -28,10 +28,10 @@ void			print_image(t_contr *contr, int x, int y)
 	mlx_clear_window(contr->mlx, contr->win_ptr);
 	mlx_put_image_to_window(contr->mlx, contr->win_ptr,
 	(contr->img).img, x, y);
-	mlx_destroy_image(contr->mlx, contr->img.img);
-	contr->img.img = mlx_new_image(contr->mlx, XRES, YRES);
-	contr->img.addr = mlx_get_data_addr(contr->img.img, &(contr->img.bpp),
-		&(contr->img.length), &(contr->img.endian));
+	// mlx_destroy_image(contr->mlx, contr->img.img);
+	// contr->img.img = mlx_new_image(contr->mlx, XRES, YRES);
+	// contr->img.addr = mlx_get_data_addr(contr->img.img, &(contr->img.bpp),
+	// 	&(contr->img.length), &(contr->img.endian));
 }
 
 int		loop_(void *params)
@@ -39,7 +39,7 @@ int		loop_(void *params)
 	t_contr *contr;
 
 	contr = (t_contr*)params;
-	draw(contr);
+	// draw(contr);
 	for (int i = 0; i < 100; i++)
 	{
 		for (int j = 0; j < 100; j++)
@@ -62,6 +62,7 @@ void run(t_contr *contr)
 	image.addr = mlx_get_data_addr(image.img, &(image.bpp), &(image.length),
 		&(image.endian));
 	contr->img = image;
+	mlx_mouse_hook(contr->win_ptr, mouse_, (void *)contr);
 	mlx_loop_hook(contr->mlx, loop_, (void *)contr);
 	mlx_loop(contr->mlx);
 }

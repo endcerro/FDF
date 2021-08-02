@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/02 13:30:07 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/02 16:51:40 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ INCLUDE		=	incl
 
 SRC			=	main.c 		\
 				parsing.c	\
-				mlx.c
+				mlx.c 		\
+				draw.c 		
 
 OBJ			=	$(SRC:.c=.o)
 OBJS		=	$(OBJ:%=$(OBJD)/%)
