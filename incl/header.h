@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/01 21:12:15 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/02 12:42:34 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -24,13 +24,13 @@ typedef struct s_node
 	unsigned int 	R;
 	unsigned int 	G;
 	unsigned int 	B;
-
-}
+} t_node;
 
 typedef struct s_contr
 {
 	void			*mlx;
-	char 			**map;
+	// char 			**map;
+	t_node 			**map;
 	unsigned int  	map_h;
 	unsigned int  	map_w;		
 } t_contr;
