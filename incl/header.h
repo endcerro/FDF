@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 19:01:59 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/05 00:21:28 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/05 00:28:59 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef HEADER_H
@@ -18,7 +18,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 
-#define XRES 500 
+#define XRES 500  
 #define YRES 500
 
 typedef struct s_node
