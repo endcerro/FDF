@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/05 00:13:36 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/05 00:15:01 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,13 @@ ECHO		=	echo
 LIB 		= 	libmlx.a
 MLX_OS		=	minilibx_macos
 
-$(NAME)		:	$(LIB) $(OBJD) $(OBJS)
+$(NAME)		:	$(LIB) $(OBJD) $(OBJS) $(INCLUDEF)
 				$(CC) -I ./$(INCLUDE) -I ./$(MLX_OS) $(LIB) $(CFLAGS) $(CFRAME) $(OBJS) -o $(NAME) 
 
 $(OBJD)		:
 				@mkdir $(OBJD)
 
-$(OBJD)/%.o	:	$(DIRSRC)/%.c $(INCLUDEF)
+$(OBJD)/%.o	:	$(DIRSRC)/%.c 
 				$(CC) -I ./$(INCLUDE) -I ./$(INCLUDE) $(CFLAGS) -o $@ -c $<
 
 $(LIB)			:

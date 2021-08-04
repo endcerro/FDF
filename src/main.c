@@ -6,7 +6,7 @@
 /*   By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/01 20:36:44 by edal--ce          #+#    #+#             */
-/*   Updated: 2021/08/02 13:44:37 by edal--ce         ###   ########.fr       */
+/*   Updated: 2021/08/05 00:15:13 by edal--ce         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "header.h"
@@ -22,7 +22,7 @@ void freemap(t_contr *contr)
 	free(contr->map);
 }
 
-
+ 
 int main(int argc, char **argv)
 {
 	t_contr contr;
