@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/04 23:39:34 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/04 23:59:10 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(NAME)		:	$(LIB) $(OBJD) $(OBJS)
 $(OBJD)		:
 				@mkdir $(OBJD)
 
-$(OBJD)/%.o	:	$(DIRSRC)/%.c
+$(OBJD)/%.o	:	$(DIRSRC)/%.c $(INCLUDE)/header.h
 				$(CC) -I ./$(INCLUDE) -I ./$(INCLUDE) $(CFLAGS) -o $@ -c $<
 
 $(LIB)			:
