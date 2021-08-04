@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/05 00:15:01 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/05 00:21:17 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,11 @@ DIRSRC		=	src
 OBJD		=	obj
 INCLUDE		=	incl
 
-INCLUDEF	=	incl/header.h \
-				incl/test.h
+
+# INCLUDEF	=	$(INCLUDE/:.h)
+
+INCLUDEF	=	$(INCLUDE)/header.h \
+				$(INCLUDE)/test.h
 
 SRC			=	main.c 		\
 				parsing.c	\
