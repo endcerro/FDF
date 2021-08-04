@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/05 00:21:17 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/05 00:22:32 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,6 @@ NAME		=	fdf
 DIRSRC		=	src
 OBJD		=	obj
 INCLUDE		=	incl
-
-
-# INCLUDEF	=	$(INCLUDE/:.h)
 
 INCLUDEF	=	$(INCLUDE)/header.h \
 				$(INCLUDE)/test.h
@@ -36,9 +33,10 @@ CFRAME		=	-framework AppKit -framework OpenGL
 
 CC			=	clang
 RM			=	rm -f
-ECHO		=	echo
-LIB 		= 	libmlx.a
+
 MLX_OS		=	minilibx_macos
+LIB 		= 	libmlx.a
+
 
 $(NAME)		:	$(LIB) $(OBJD) $(OBJS) $(INCLUDEF)
 				$(CC) -I ./$(INCLUDE) -I ./$(MLX_OS) $(LIB) $(CFLAGS) $(CFRAME) $(OBJS) -o $(NAME) 
@@ -51,7 +49,7 @@ $(OBJD)/%.o	:	$(DIRSRC)/%.c
 
 $(LIB)			:
 				$(MAKE) -C $(MLX_OS)
-				cp $(MLX_OS)/libmlx.a ./.
+				cp $(MLX_OS)/$(LIB) ./.
 
 all			:	$(NAME)
 
@@ -60,7 +58,7 @@ clean		:
 
 fclean		:	clean
 				
-				$(RM) -rf $(NAME) $(LIB)
+				$(RM) $(NAME) $(LIB)
 
 
 bonus		:	all
