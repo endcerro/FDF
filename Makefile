@@ -6,7 +6,7 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/05 00:01:49 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/05 00:13:36 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ NAME		=	fdf
 DIRSRC		=	src
 OBJD		=	obj
 INCLUDE		=	incl
+
+INCLUDEF	=	incl/header.h \
+				incl/test.h
 
 SRC			=	main.c 		\
 				parsing.c	\
@@ -40,7 +43,7 @@ $(NAME)		:	$(LIB) $(OBJD) $(OBJS)
 $(OBJD)		:
 				@mkdir $(OBJD)
 
-$(OBJD)/%.o	:	$(DIRSRC)/%.c $(INCLUDE)/header.h
+$(OBJD)/%.o	:	$(DIRSRC)/%.c $(INCLUDEF)
 				$(CC) -I ./$(INCLUDE) -I ./$(INCLUDE) $(CFLAGS) -o $@ -c $<
 
 $(LIB)			:
