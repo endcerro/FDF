@@ -6,9 +6,10 @@
 #    By: edal--ce <edal--ce@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/01 18:59:29 by edal--ce          #+#    #+#              #
-#    Updated: 2021/08/02 16:51:40 by edal--ce         ###   ########.fr        #
+#    Updated: 2021/08/04 23:39:34 by edal--ce         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME		=	fdf
 
@@ -24,16 +25,17 @@ SRC			=	main.c 		\
 OBJ			=	$(SRC:.c=.o)
 OBJS		=	$(OBJ:%=$(OBJD)/%)
 
-CFLAGS		= 	-framework AppKit -framework OpenGL -Wall -Wextra -g -fsanitize=address #-Werror 
+CFLAGS		= 	-Wall -Wextra -g -fsanitize=address #-Werror 
+CFRAME		=	-framework AppKit -framework OpenGL
 
 CC			=	clang
 RM			=	rm -f
 ECHO		=	echo
-
+LIB 		= 	libmlx.a
 MLX_OS		=	minilibx_macos
 
-$(NAME)		:	LIB $(OBJD) $(OBJS)
-				$(CC) -I ./$(INCLUDE) -I ./$(MLX_OS) libmlx.a $(CFLAGS) $(OBJS) -o $(NAME) 
+$(NAME)		:	$(LIB) $(OBJD) $(OBJS)
+				$(CC) -I ./$(INCLUDE) -I ./$(MLX_OS) $(LIB) $(CFLAGS) $(CFRAME) $(OBJS) -o $(NAME) 
 
 $(OBJD)		:
 				@mkdir $(OBJD)
@@ -41,7 +43,7 @@ $(OBJD)		:
 $(OBJD)/%.o	:	$(DIRSRC)/%.c
 				$(CC) -I ./$(INCLUDE) -I ./$(INCLUDE) $(CFLAGS) -o $@ -c $<
 
-LIB			:
+$(LIB)			:
 				$(MAKE) -C $(MLX_OS)
 				cp $(MLX_OS)/libmlx.a ./.
 
@@ -52,7 +54,7 @@ clean		:
 
 fclean		:	clean
 				
-				$(RM) $(NAME)
+				$(RM) -rf $(NAME) $(LIB)
 
 
 bonus		:	all
